@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: demo-web
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+
+server:
+  port: 8080
+  servlet:
+    context-path: /${spring.application.name}
+
+#base-url: http://localhost:8080/${spring.application.name}
+base-url: https://chinabp-dev.ext.hp.com.cn/uam
+
+base:
+  base-url: http://localhost:8080/${spring.application.name}
+  web:
+    global-exception-handler-auto-configure: true
+    security:
+      get-login-user:
+        auto-configure: true
+        get-login-user-rest-path: GET /rest/loginUser
+      password:
+        auto-configure: true
+        login-rest-path: POST /rest/login
+        logout-rest-path: GET /rest/logout
+      hp-one-uid:
+        auto-configure: true
+        client-id: ry5paMFjXEyKQ0wWFMdUemf
+        client-secret: BPuQo21xIpmoa8eWoHPvWVYSkAvMllGU583ulo0gUSzHtnXHLAcpsh4NtYTHwlMm
+        login-path: /login/oauth2/hponeuid
+        login-callback-path: /login/oauth2/code/hponeuid
+        logout-path: /logout/oauth2/hponeuid
+        logout-callback-path: /logout/oauth2/hponeuid/callback
+        oauth2-base-url: https://login-itg.external.hp.com
+        app-base-url: ${base-url}
+      hp-id:
+        auto-configure: true
+        client-id: pfetxz9FnsJMy5LYpg0CC2Qu1PPz2Kj6
+        client-secret: COtRqYNXkzNsvIF9ynGMH1HX19J7r2mI
+        login-path: /login/oauth2/hpid
+        login-callback-path: /login/oauth2/code/hpid
+        logout-path: /logout/oauth2/hpid
+        logout-callback-path: /logout/oauth2/hpid/callback
+        oauth2-base-url: https://directory.stg.cd.id.hp.com
+        app-base-url: ${base-url}

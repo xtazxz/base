@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.xtazxz</groupId>
+  <artifactId>base</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <module.version>1.0.0</module.version>
+
+    <!-- Spring -->
+    <spring-boot.version>3.1.6</spring-boot.version>
+    <spring-cloud.version>2022.0.4</spring-cloud.version>
+    <spring-cloud-aws.version>3.0.4</spring-cloud-aws.version>
+
+    <!-- Spring Starter -->
+    <mybatis-plus.version>3.5.4.1</mybatis-plus.version>
+    <knife4j.version>4.4.0</knife4j.version>
+
+    <!-- other -->
+    <hutool.version>5.8.23</hutool.version>
+    <freemarker.version>2.3.32</freemarker.version>
+    <mssql-jdbc.version>11.2.3.jre17</mssql-jdbc.version>
+  </properties>
+
+  <modules>
+    <module>base-entity</module>
+    <module>base-common</module>
+    <module>base-service</module>
+    <module>base-web</module>
+    <module>demo/demo-web</module>
+  </modules>
+
+  <dependencies>
+    <!-- optional third-party lib -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-autoconfigure</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <!-- test lib -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- modules -->
+      <dependency>
+        <groupId>org.xtazxz</groupId>
+        <artifactId>base-entity</artifactId>
+        <version>${module.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.xtazxz</groupId>
+        <artifactId>base-common</artifactId>
+        <version>${module.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.xtazxz</groupId>
+        <artifactId>base-service</artifactId>
+        <version>${module.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.xtazxz</groupId>
+        <artifactId>base-web</artifactId>
+        <version>${module.version}</version>
+      </dependency>
+
+      <!-- Spring -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.awspring.cloud</groupId>
+        <artifactId>spring-cloud-aws-dependencies</artifactId>
+        <version>${spring-cloud-aws.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- Spring Starter -->
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-core</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-extension</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-annotation</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-generator</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.github.xiaoymin</groupId>
+        <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+        <version>${knife4j.version}</version>
+      </dependency>
+
+      <!-- other -->
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-bom</artifactId>
+        <version>${hutool.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.freemarker</groupId>
+        <artifactId>freemarker</artifactId>
+        <version>${freemarker.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>${mssql-jdbc.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <build>
+    <plugins>
+      <!-- checkstyle -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.2.1</version>
+        <configuration>
+          <configLocation>google_checks_10.7_ext.xml</configLocation>
+          <consoleOutput>true</consoleOutput>
+          <failsOnError>true</failsOnError>
+          <includeTestSourceDirectory>true</includeTestSourceDirectory>
+          <violationSeverity>warning</violationSeverity>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <artifactId>checkstyle</artifactId>
+            <groupId>com.puppycrawl.tools</groupId>
+            <version>10.7.0</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <id>checkstyle-validation</id>
+            <phase>validate</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- upload source code to nexus -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.2.1</version>
+        <configuration>
+          <attach>true</attach>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+
+    <pluginManagement>
+      <plugins>
+        <!-- spring boot -->
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${spring-boot.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>repackage</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <!-- maven deploy -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.1.1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/**</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+
+</project>

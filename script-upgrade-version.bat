@@ -1,0 +1,1 @@
+mvn -DgenerateBackupPoms=false versions:set -DnewVersion=%1

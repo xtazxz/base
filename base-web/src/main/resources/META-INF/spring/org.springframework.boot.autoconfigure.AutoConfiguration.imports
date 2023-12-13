@@ -1,0 +1,3 @@
+org.xtazxz.base.web.autoconfigure.WebAutoConfigure
+org.xtazxz.base.web.autoconfigure.security.GetLoginUserAutoConfigure
+org.xtazxz.base.web.autoconfigure.security.PasswordAutoConfigure
