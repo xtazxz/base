@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.xtazxz</groupId>
+  <groupId>io.github.xtazxz</groupId>
   <artifactId>base</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
@@ -90,22 +90,22 @@
     <dependencies>
       <!-- modules -->
       <dependency>
-        <groupId>org.xtazxz</groupId>
+        <groupId>io.github.xtazxz</groupId>
         <artifactId>base-entity</artifactId>
         <version>${module.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.xtazxz</groupId>
+        <groupId>io.github.xtazxz</groupId>
         <artifactId>base-common</artifactId>
         <version>${module.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.xtazxz</groupId>
+        <groupId>io.github.xtazxz</groupId>
         <artifactId>base-service</artifactId>
         <version>${module.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.xtazxz</groupId>
+        <groupId>io.github.xtazxz</groupId>
         <artifactId>base-web</artifactId>
         <version>${module.version}</version>
       </dependency>
